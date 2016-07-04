@@ -30,12 +30,6 @@ h2.ss-subtitle:after{
 	bottom: -4px;
 }
 .ss-links{
-	/*position: fixed;*/
-	/*right: 20px;*/
-	/*top: 166px;*/
-    /*top:50%;*/
-    /*transform: translateY(-50%);*/
-	/*width: 25%;*/
   width:60px;
   height:300px;
 	z-index: 100;
