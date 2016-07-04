@@ -54,19 +54,26 @@ body{
     font-size: 15px;
 }*/
 
-div.mit_cre_timeline_block {
-    height: 100vh;
-    width: 100%;
-    position: relative;
+
+/* XBLOCK overrides */
+.course-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.course-content {
+    padding: 0 !important;
 }
 
 .ss-links--wrapper {
-    position: absolute;
+    position: fixed;
     height: 300px;
-    width: 60px;
+    width: 60px !important;
     right: 0;
     top: 30%;
-    /*transform: translateY(50%);*/
+    z-index: 10000000;
+    background: transparent !important;
+    border: 0 none !important;
 }
 
 #main-wrapper {
@@ -190,13 +197,12 @@ h1.section-header {
 }
 
 #timeline-summary {
-    position:absolute;
-    width:70%;
-    z-index:2;
-    left:50%;
-    top:50%;
-    transform:translate(-50%, -50%);
-    color:#fff;
+    position: relative;
+    width: 70%;
+    z-index: 2;
+    left: 15%;
+    margin-top: 10%;
+    color: #fff;
 }
 
 #timeline-summary p {
@@ -211,13 +217,14 @@ h1.section-header {
 #site-bg-video {
     position:fixed;
     height:100%;
+    width: 100%;
     /*left: 0;*/
     overflow:hidden;
     z-index:-1;
 }
 
 #site-bg-video--wrapper {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -227,9 +234,11 @@ h1.section-header {
 
 .ss-container {
     position:absolute;
-    margin-top:800px;
+    margin-top:300px;
     z-index:1;
     padding-bottom:20% !important;
+    background: transparent !important;
+    border: 0 none !important;
 }
 
 .ss-container:before {
