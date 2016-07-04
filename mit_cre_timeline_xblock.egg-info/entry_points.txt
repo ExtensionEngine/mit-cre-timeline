@@ -1,0 +1,3 @@
+[xblock.v1]
+mit_cre_timeline = mit_cre_timeline:TimelineXBlock
+
