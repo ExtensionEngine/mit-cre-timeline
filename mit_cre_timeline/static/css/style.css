@@ -30,21 +30,22 @@ h2.ss-subtitle:after{
 	bottom: -4px;
 }
 .ss-links{
-	position: fixed;
+	/*position: fixed;*/
 	/*right: 20px;*/
 	/*top: 166px;*/
     /*top:50%;*/
     /*transform: translateY(-50%);*/
 	/*width: 25%;*/
-    width:40px;
-    height:300px;
+  width:60px;
+  height:300px;
 	z-index: 100;
+  background: transparent;
+  border: 0 none;
 }
 .ss-links a{
 	background: rgba(71,173,167,.5);
-    font-family: "bebasneue_regular", sans-serif;
-	font-size: 1em;
-    font-size: 1rem;
+  font-family: "bebasneue_regular", sans-serif;
+  font-size: .75em;
 	width: 40px;
 	height: 40px;
 	line-height: 40px;
@@ -64,15 +65,14 @@ h2.ss-subtitle:after{
 }
 
 .ss-links a span {
-    font-size: .75em;
-    font-size: .75rem;
+  font-size: .75em;
 }
 
 .ss-container{
-    width: 100%;
-    position: relative;
-    text-align: left;
-    float: left;
+  width: 100%;
+  position: relative;
+  text-align: left;
+  float: left;
 	overflow: hidden;
 	padding-bottom: 500px;
 }
