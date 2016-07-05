@@ -38,12 +38,6 @@
 }*/
 
 /* XBLOCK overrides */
-
-.xblock-render #site-bg-video--wrapper {
-    position: relative;
-    display: none;
-}
-
 .xblock-render .mit_cre_timeline_block {
     display: none;
 }
