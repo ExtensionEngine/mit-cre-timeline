@@ -37,25 +37,19 @@
 
 }*/
 
-/* General Demo Style */
-
-/*html {
-    height: 100%;
+/* XBLOCK overrides */
+.xblock-render .mit_cre_timeline_block {
+    display: none;
 }
 
-body{
-    height: 100%;
-    width:100%;
-    !*display:table;*!
-    position: relative;
-    !*background: #f7f7f7 url(../images/old_wall.jpg) repeat top left;*!
-    color: rgba(0,0,0,0.8);
-    !*font-family: 'Kelly Slab','Myriad Pro', Arial, sans-serif;*!
-    font-size: 15px;
-}*/
+.xblock-render #timeline-punchline {
+    display: block;
+}
 
+#timeline-punchline {
+    display: none;
+}
 
-/* XBLOCK overrides */
 .course-wrapper {
     width: 100% !important;
     max-width: 100% !important;
@@ -64,6 +58,8 @@ body{
 .course-content {
     padding: 0 !important;
 }
+
+/* end xblock overrides */
 
 .ss-links--wrapper {
     position: fixed;
@@ -230,6 +226,7 @@ h1.section-header {
     right: 0;
     min-height: 100%;
     min-width: 100%;
+    background-color: black;
 }
 
 .ss-container {
