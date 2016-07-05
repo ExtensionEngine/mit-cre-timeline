@@ -44,7 +44,7 @@ function TimelineXBlock(runtime, element) {
                         });
                     }
                     // show the pointers for the inviewport rows
-                    $rowsViewport.find('a.ss-circle').addClass('ss-circle-deco');
+                    $rowsViewport.find('.ss-circle').addClass('ss-circle-deco');
                     // set positions for each row
                     placeRows();
 
@@ -108,7 +108,7 @@ function TimelineXBlock(runtime, element) {
                             // redefine which rows are initially visible (:inviewport)
                             setViewportRows();
                             // remove pointers for every row
-                            $rows.find('a.ss-circle').removeClass('ss-circle-deco');
+                            $rows.find('.ss-circle').removeClass('ss-circle-deco');
                             // show inviewport rows and respective pointers
                             $rowsViewport.each(function () {
 
@@ -118,7 +118,7 @@ function TimelineXBlock(runtime, element) {
                                     .find('div.ss-right')
                                     .css({right: '0%'})
                                     .end()
-                                    .find('a.ss-circle')
+                                    .find('.ss-circle')
                                     .addClass('ss-circle-deco');
 
                             });
@@ -293,28 +293,5 @@ function TimelineXBlock(runtime, element) {
         })();
 
         $videoBackground.init();
-
-        // Layout init - explicit height set to parent div
-        /*var $layoutFixes = (function () {
-
-            var $container = $('#main-wrapper').find('.container');
-            var $xblock = $('div.mit_cre_timeline_block');
-
-            var setContainerSize = function() {
-                var $container = $('#main-wrapper').find('.container');
-                console.log('test 2');
-                $xblock.height($container.height());
-                $xblock.width($container.width());
-            };
-
-            var init = function () {
-                setContainerSize();
-                $(window).resize(setContainerSize);
-            };
-
-            return {init: init};
-        })();
-
-        $layoutFixes.init();*/
     });
 }

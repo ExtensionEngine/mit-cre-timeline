@@ -9,7 +9,10 @@ from xblock.fragment import Fragment
 
 class TimelineXBlock(XBlock):
     """
-    TO-DO: document what your XBlock does.
+    This XBlock shows pretty jQuery powered timeline HTML page.
+    It currently has no input except edit display_name in edX studio
+    but future plans include a form where content author would be able
+    to create their own timeline.
     """
 
     # Fields are defined on the class.  You can access them in your code as
@@ -44,18 +47,27 @@ class TimelineXBlock(XBlock):
         frag.initialize_js('TimelineXBlock')
         return frag
 
-    # TO-DO: change this handler to perform your own actions.  You may need more
-    # than one handler, or you may not need any handlers at all.
-    @XBlock.json_handler
-    def increment_count(self, data, suffix=''):
+    def studio_view(self, context):
         """
-        An example handler, which increments the data.
+        Create a fragment used to display the edit view in the Studio.
         """
-        # Just to show data coming in...
-        assert data['hello'] == 'world'
+        html_str = pkg_resources.resource_string(__name__, "static/html/studio_view.html")
+        frag = Fragment(unicode(html_str).format(display_name=self.display_name))
+        js_str = pkg_resources.resource_string(__name__, "static/js/src/studio_edit.js")
+        frag.add_javascript(unicode(js_str))
+        frag.initialize_js('StudioEdit')
 
-        self.count += 1
-        return {"count": self.count}
+        return frag
+
+    @XBlock.json_handler
+    def studio_submit(self, data, suffix=''):
+        """
+        Called when submitting the form in Studio.
+        """
+        self.display_name = data.get('display_name')
+
+        return {'result': 'success'}
+
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
