@@ -251,7 +251,7 @@ section#timeline-summary h1.section-header {
 
 .ss-container {
     position: absolute;
-    margin-top: 300px;
+    margin-top: 200px;
     z-index: 1;
     padding-bottom: 20% !important;
     background: transparent !important;
