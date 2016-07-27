@@ -321,6 +321,10 @@ section#timeline-summary h1.section-header {
     border-right: 5px solid rgba(71, 173, 167, 0) !important;
 }
 
+.ss-left h2, .ss-left h3 {
+    text-align: right;
+}
+
 .ss-left .ss-circle-deco:after {
     border: 6px solid #fff !important;
     border-radius: 12px !important;

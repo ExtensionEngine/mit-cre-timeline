@@ -117,7 +117,7 @@ h2.ss-subtitle:after {
 }
 
 .ss-left {
-    text-align: right;
+    text-align: right !important;
     float: left;
     padding-right: 2%;
     padding-left: 8%;
