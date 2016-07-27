@@ -37,10 +37,18 @@ class TimelineXBlock(XBlock):
         """
         html = self.resource_string("static/html/mit_cre_timeline.html")
         frag = Fragment(html.format(self=self))
-        frag.add_css(self.resource_string("static/css/custom.css"))
-        frag.add_css(self.resource_string("static/css/reset.css"))
-        frag.add_css(self.resource_string("static/css/style.css"))
-        frag.add_css(self.resource_string("static/css/kelly_slab.css"))
+        frag.add_css_url(
+            self.runtime.local_resource_url(
+                self, 'public/css/custom.css'))
+        frag.add_css_url(
+            self.runtime.local_resource_url(
+                self, 'public/css/reset.css'))
+        frag.add_css_url(
+            self.runtime.local_resource_url(
+                self, 'public/css/style.css'))
+        frag.add_css_url(
+            self.runtime.local_resource_url(
+                self, 'public/css/kelly_slab.css'))
         frag.add_javascript(self.resource_string("static/js/src/mit_cre_timeline.js"))
         frag.add_javascript(self.resource_string("static/js/src/jquery.easing.1.3.js"))
         frag.add_javascript(self.resource_string("static/js/src/modernizr.custom.11333.js"))
@@ -67,7 +75,6 @@ class TimelineXBlock(XBlock):
         self.display_name = data.get('display_name')
 
         return {'result': 'success'}
-
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
