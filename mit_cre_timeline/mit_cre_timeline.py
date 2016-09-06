@@ -19,11 +19,6 @@ class TimelineXBlock(XBlock):
     to create their own timeline.
     """
 
-    # Fields are defined on the class.  You can access them in your code as
-    # self.<fieldname>.
-    display_description = String(help="XBlock subtitle", default=None, scope=Scope.content)
-    thumbnail_url = String(help="URL of the thumbnail image", default=None, scope=Scope.content)
-
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
