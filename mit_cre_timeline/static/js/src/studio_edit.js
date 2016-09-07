@@ -5,7 +5,7 @@ function StudioEdit(runtime, element) {
         var data = new FormData();
         data.append('display_name', $(element).find('input[name=display_name]').val());
         data.append('display_description', $(element).find('input[name=display_description]').val().trim());
-        data.append('thumbnail', $(element).find('input[name=thumbnail]')[0].files[0]);
+        data.append('thumbnail', $(element).find('input[name=thumbnail]').val().trim());
 
         runtime.notify('save', {state: 'start'});
 
