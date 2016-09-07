@@ -19,6 +19,11 @@ class TimelineXBlock(XBlock):
     to create their own timeline.
     """
 
+    display_name = String(display_name="Display Name",
+                          default="Dynamic Timeline",
+                          scope=Scope.settings,
+                          help="This name appears in the horizontal navigation at the top of the page.")
+
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
@@ -33,20 +38,20 @@ class TimelineXBlock(XBlock):
         html = self.resource_string("static/html/mit_cre_timeline.html")
         frag = Fragment(html.format(self=self))
         frag.add_css_url(
-            self.runtime.local_resource_url(
-                self, 'public/css/custom.css'))
+                self.runtime.local_resource_url(
+                        self, 'public/css/custom.css'))
         frag.add_css_url(
-            self.runtime.local_resource_url(
-                self, 'public/css/reset.css'))
+                self.runtime.local_resource_url(
+                        self, 'public/css/reset.css'))
         frag.add_css_url(
-            self.runtime.local_resource_url(
-                self, 'public/css/style.css'))
+                self.runtime.local_resource_url(
+                        self, 'public/css/style.css'))
         frag.add_css_url(
-            self.runtime.local_resource_url(
-                self, 'public/css/kelly_slab.css'))
-        frag.add_javascript(self.resource_string("static/js/src/mit_cre_timeline.js"))
+                self.runtime.local_resource_url(
+                        self, 'public/css/kelly_slab.css'))
         frag.add_javascript(self.resource_string("static/js/src/jquery.easing.1.3.js"))
         frag.add_javascript(self.resource_string("static/js/src/modernizr.custom.11333.js"))
+        frag.add_javascript(self.resource_string("static/js/src/mit_cre_timeline.js"))
         frag.initialize_js('TimelineXBlock')
         return frag
 
@@ -56,9 +61,9 @@ class TimelineXBlock(XBlock):
         """
         html_str = pkg_resources.resource_string(__name__, "static/html/studio_view.html")
         frag = Fragment(unicode(html_str).format(
-            display_name=self.display_name,
-            thumbnail_url=self.thumbnail_url,
-            display_description=self.display_description
+                display_name=self.display_name,
+                thumbnail_url=self.thumbnail_url,
+                display_description=self.display_description
         ))
         js_str = pkg_resources.resource_string(__name__, "static/js/src/studio_edit.js")
         frag.add_javascript(unicode(js_str))
@@ -107,8 +112,8 @@ class TimelineXBlock(XBlock):
         path = (
             '{loc.block_type}/{loc.block_id}'
             '/{filename}'.format(
-                loc=self.location,
-                filename=filename
+                    loc=self.location,
+                    filename=filename
             )
         )
 

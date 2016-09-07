@@ -37,14 +37,47 @@
 
 }
 
-/* XBLOCK overrides */
+/******************************************* studio view ********************************************/
+
 .xblock-render .mit_cre_timeline_block {
+    background-color: #615c5c;
+    max-height: 600px;
+    overflow: scroll;
+}
+
+.xblock-render #main-wrapper {
+    position: relative;
+    background-color: transparent;
+}
+
+.xblock-render #bg-overlay {
+    position: relative;
+    background-color: transparent;
+}
+
+.xblock-render #site-bg-video {
+    position: relative;
+}
+
+.xblock-render #site-bg-video--wrapper {
     display: none;
 }
 
-.xblock-render #timeline-punchline {
-    display: block;
+.xblock-render .ss-container {
+    float: none;
 }
+
+.xblock-render #timeline-summary {
+    margin-top: 0;
+    padding-top: 10%;
+}
+
+.xblock-render .ss-links--wrapper {
+    position: absolute;
+    right: 5%;
+}
+
+/* XBLOCK overrides */
 
 #timeline-punchline {
     display: none;
@@ -58,6 +91,8 @@
 .course-content {
     padding: 0 !important;
 }
+
+/******************************************* lms view ********************************************/
 
 /* end xblock overrides */
 

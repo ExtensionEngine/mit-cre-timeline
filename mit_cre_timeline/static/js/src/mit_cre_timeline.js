@@ -1,8 +1,14 @@
 /* Javascript for TimelineXBlock. */
 function TimelineXBlock(runtime, element) {
 
-    $(function () {
 
+    function insertLinksOutsideOfTheTimeline() {
+        var $links = $('.ss-links--wrapper');
+        $('.ss-links--wrapper').remove();
+        $links.prependTo($('.xblock-student_view'));
+    }
+
+    function initializeAfterDomLoaded() {
         var $sidescroll = (function () {
 
             // the row elements
@@ -27,7 +33,6 @@ function TimelineXBlock(runtime, element) {
                 perspective = hasPerspective && Modernizr.csstransforms3d,
             // initialize function
                 init = function () {
-
                     // get window sizes
                     getWinSize();
                     // initialize events
@@ -75,12 +80,11 @@ function TimelineXBlock(runtime, element) {
                 },
             // get window sizes
                 getWinSize = function () {
-
                     winSize.width = $win.width();
                     winSize.height = $win.height();
                     /*var $container = $(document).find('div.mit_cre_timeline_block');
-                    winSize.width = $container.width();
-                    winSize.height = $container.height();*/
+                     winSize.width = $container.width();
+                     winSize.height = $container.height();*/
 
                 },
             // initialize some events
@@ -99,7 +103,17 @@ function TimelineXBlock(runtime, element) {
 
                     });
 
-                    $(window).on({
+                    // in studio view, scroll event is inside of the xblock div,
+                    // in lms, inside of the window
+                    var $scrollElemenetRef;
+                    if ($('.xblock-render')) {
+                        $scrollElemenetRef = $('.mit_cre_timeline_block');
+                    } else {
+                        $scrollElemenetRef = $(window);
+                    }
+
+
+                    $scrollElemenetRef.on({
                         // on window resize we need to redefine which rows are initially visible (this ones we will not animate).
                         'resize.Scrolling': function (event) {
 
@@ -293,5 +307,12 @@ function TimelineXBlock(runtime, element) {
         })();
 
         $videoBackground.init();
-    });
+
+        // in studio view
+        if($('.xblock-initialized')){
+            insertLinksOutsideOfTheTimeline();
+        }
+    }
+
+    setTimeout(initializeAfterDomLoaded, 25);
 }
