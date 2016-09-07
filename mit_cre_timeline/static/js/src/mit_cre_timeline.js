@@ -105,14 +105,14 @@ function TimelineXBlock(runtime, element) {
                     // in studio view, scroll event is inside of the xblock div,
                     // in lms, inside of the window
                     var $scrollElemenetRef;
-                    if ($('.xblock-render')) {
+                    if ($('.xblock-render').length) {
                         $scrollElemenetRef = $('.mit_cre_timeline_block');
                     } else {
                         $scrollElemenetRef = $(window);
                     }
 
 
-                    $scrollElemenetRef.on({
+                     $scrollElemenetRef.on({
                         // on window resize we need to redefine which rows are initially visible (this ones we will not animate).
                         'resize.Scrolling': function (event) {
 
@@ -312,5 +312,6 @@ function TimelineXBlock(runtime, element) {
             insertLinksOutsideOfTheTimeline();
         }
     }
-    setTimeout(initializeAfterDomLoaded, 0);
+    initializeAfterDomLoaded();
+    //setTimeout(initializeAfterDomLoaded, 500);
 }

@@ -49,9 +49,9 @@ class TimelineXBlock(XBlock):
         frag.add_css_url(
                 self.runtime.local_resource_url(
                         self, 'public/css/kelly_slab.css'))
+        frag.add_javascript(self.resource_string("static/js/src/mit_cre_timeline.js"))
         frag.add_javascript(self.resource_string("static/js/src/jquery.easing.1.3.js"))
         frag.add_javascript(self.resource_string("static/js/src/modernizr.custom.11333.js"))
-        frag.add_javascript(self.resource_string("static/js/src/mit_cre_timeline.js"))
         frag.initialize_js('TimelineXBlock')
         return frag
 
