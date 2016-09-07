@@ -1,7 +1,6 @@
 /* Javascript for TimelineXBlock. */
 function TimelineXBlock(runtime, element) {
 
-
     function insertLinksOutsideOfTheTimeline() {
         var $links = $('.ss-links--wrapper');
         $('.ss-links--wrapper').remove();
@@ -313,6 +312,5 @@ function TimelineXBlock(runtime, element) {
             insertLinksOutsideOfTheTimeline();
         }
     }
-
-    setTimeout(initializeAfterDomLoaded, 25);
+    setTimeout(initializeAfterDomLoaded, 0);
 }
