@@ -74,28 +74,7 @@ class TimelineXBlock(XBlock):
         data = request.POST
         self.display_name = data['display_name']
         self.display_description = data['display_description']
-
-        if not isinstance(data['thumbnail'], basestring):
-            upload = data['thumbnail']
-
-            filename = self._file_storage_name(upload.file.name)
-            content_location = StaticContent.compute_location(self.location.course_key, filename)
-
-            chunked = upload.file.multiple_chunks()
-            sc_partial = partial(StaticContent, content_location, filename, upload.file.content_type)
-            if chunked:
-                content = sc_partial(upload.file.chunks())
-                tempfile_path = upload.file.temporary_file_path()
-            else:
-                content = sc_partial(upload.file.read())
-                tempfile_path = None
-
-            contentstore().save(content)
-
-            # readback the saved content - we need the database timestamp
-            readback = contentstore().find(content.location)
-            locked = getattr(content, 'locked', False)
-            self.thumbnail_url = StaticContent.serialize_asset_key_with_slash(content.location)
+        self.thumbnail_url = data['thumbnail']
 
         return Response(json_body={'result': 'success'})
 
