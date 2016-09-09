@@ -81,10 +81,6 @@ function TimelineXBlock(runtime, element) {
                 getWinSize = function () {
                     winSize.width = $win.width();
                     winSize.height = $win.height();
-                    /*var $container = $(document).find('div.mit_cre_timeline_block');
-                     winSize.width = $container.width();
-                     winSize.height = $container.height();*/
-
                 },
             // initialize some events
                 initEvents = function () {
@@ -139,18 +135,7 @@ function TimelineXBlock(runtime, element) {
                         },
                         // when scrolling the page change the position of each row
                         'scroll.Scrolling': function (event) {
-
-                            // set a timeout to avoid that the
-                            // placeRows function gets called on every scroll trigger
-                            if (anim) return false;
-                            anim = true;
-                            setTimeout(function () {
-
-                                placeRows();
-                                anim = false;
-
-                            }, 10);
-
+                            placeRows();
                         }
                     });
 
@@ -308,10 +293,9 @@ function TimelineXBlock(runtime, element) {
         $videoBackground.init();
 
         // in studio view
-        if($('.xblock-initialized')){
+        if ($('.xblock-render').length){
             insertLinksOutsideOfTheTimeline();
         }
     }
     initializeAfterDomLoaded();
-    //setTimeout(initializeAfterDomLoaded, 500);
 }

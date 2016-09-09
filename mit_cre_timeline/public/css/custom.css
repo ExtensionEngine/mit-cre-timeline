@@ -114,9 +114,12 @@
     background-color: rgba(0, 0, 0, .5);
 }
 
-a {
+.ss-links a,
+.ss-links a:visited,
+.ss-links a:active {
     color: #fff;
     text-decoration: none;
+
 }
 
 .container {
