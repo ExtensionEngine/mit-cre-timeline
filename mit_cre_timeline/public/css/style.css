@@ -41,7 +41,7 @@ h2.ss-subtitle:after {
 }
 
 .ss-links a {
-    background: rgba(71, 173, 167, .5);
+    background: rgba(95, 46, 49, .8);
     font-family: "bebasneue_regular", sans-serif;
     font-size: 1rem;
     width: 40px;
@@ -60,8 +60,16 @@ h2.ss-subtitle:after {
 }
 
 .ss-links a:hover {
-    background: rgba(71, 173, 167, 1);
+    background: rgba(95, 46, 49, 1);
     color: white; !important;
+}
+
+.ss-links a,
+.ss-links a:visited,
+.ss-links a:active {
+    color: #fff;
+    text-decoration: none;
+
 }
 
 .ss-links a span {
