@@ -106,6 +106,19 @@
     border: 0 none !important;
 }
 
+.ss-links a:hover {
+    background: rgba(95, 46, 49, 1);
+    color: white; !important;
+}
+
+.ss-links a,
+.ss-links a:visited,
+.ss-links a:active {
+    color: #fff;
+    text-decoration: none;
+
+}
+
 #main-wrapper {
     position: absolute;
     min-height: 100%;
