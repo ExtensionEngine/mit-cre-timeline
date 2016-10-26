@@ -1,5 +1,5 @@
 body {
-    -ms-overflow-scroll: none;
+    -ms-overflow-style: none;
 }
 
 body::-webkit-scrollbar {
