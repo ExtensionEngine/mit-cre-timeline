@@ -265,3 +265,12 @@ h2.ss-subtitle:after {
 .ss-container h3 a:hover {
     color: rgba(255, 255, 255, 1);
 }
+
+/* hide spans without picture */
+
+.empty-span {
+    background: transparent;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
