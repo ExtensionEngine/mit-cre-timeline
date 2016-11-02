@@ -216,7 +216,6 @@
     height: 100%;
     z-index: 0;
     opacity: .33;
-    background-color: #000;
 }
 
 section#timeline-summary h1.section-header {
@@ -285,7 +284,6 @@ section#timeline-summary h1.section-header {
     right: 0;
     min-height: 100%;
     min-width: 100%;
-    background-color: black;
     z-index: 100;
     opacity: .5;
 }
