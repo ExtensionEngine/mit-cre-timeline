@@ -221,14 +221,12 @@
 
 section#timeline-summary h1.section-header {
     margin-bottom: .5em;
-    margin-bottom: .5rem;
-    /*opacity:0;*/
+    margin-bottom: 2rem;
     position: relative;
-    /*top:20px;*/
     font-family: "lora_regular", sans-serif;
     color: #fff;
     font-size: 3em;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .ss-container h2 {
@@ -254,19 +252,20 @@ section#timeline-summary h1.section-header {
 #timeline-summary p {
     font-family: "yantramanav_light", sans-serif;
     font-size: 1em;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #fff;
     line-height: 1.5em;
-    line-height: 1.5rem;
+    line-height: 2.5rem;
 }
 
 #site-bg-video {
     position: fixed;
     height: 100%;
     width: 100%;
-    /*left: 0;*/
     overflow: hidden;
     z-index: -1;
+    background-image: url(../images/bg-static-int-panamas-history.jpg);
+    background-size: cover;
 }
 
 #site-bg-video--wrapper {

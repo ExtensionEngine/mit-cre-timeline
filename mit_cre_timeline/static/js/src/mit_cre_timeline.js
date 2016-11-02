@@ -257,27 +257,27 @@ function TimelineXBlock(runtime, element) {
 
         // HTML5 Video Background
         var $videoBackground = (function () {
-
+            const ratio = 1.77777777777778;
             var $container = $(document).find('div.mit_cre_timeline_block');
 
             var resize = function () {
                 var windowWidth = $container.width(),
                     windowHeight = $container.height(),
-                    offsetMe = -1 * (((windowHeight * 1.77777777777778) - windowWidth) / 2);
+                    offsetMe = -1 * (((windowHeight * ratio) - windowWidth) / 2);
 
                 if (windowWidth > windowHeight) {
-                    if (windowWidth / windowHeight <= 1.77777777777778) {
+                    if (windowWidth / windowHeight <= ratio) {
                         $(".bg-video").attr("height", windowHeight);
-                        $(".bg-video").attr("width", windowHeight * 1.77777777777778);
+                        $(".bg-video").attr("width", windowHeight * ratio);
                         $(".bg-video").css("margin-left", 0);
-                    } else if (windowWidth / windowHeight > 1.77777777777778) {
-                        $(".bg-video").attr("height", windowWidth / 1.77777777777778);
+                    } else if (windowWidth / windowHeight > ratio) {
+                        $(".bg-video").attr("height", windowWidth / ratio);
                         $(".bg-video").attr("width", windowWidth);
                         $(".bg-video").css("margin-left", 0);
                     }
                 } else if (windowWidth < windowHeight) {
                     $(".bg-video").attr("height", windowHeight);
-                    $(".bg-video").attr("width", windowHeight * 1.77777777777778);
+                    $(".bg-video").attr("width", windowHeight * ratio);
                     $(".bg-video").css("margin-left", offsetMe);
                 }
             };
