@@ -7,11 +7,10 @@ from xblock.fields import Scope, Integer, String
 from xblock.fragment import Fragment
 from functools import partial
 from webob.response import Response
-from xmodule.contentstore.content import StaticContent
-from xmodule.contentstore.django import contentstore
+from xblock_django.mixins import FileUploadMixin
 
 
-class TimelineXBlock(XBlock):
+class TimelineXBlock(XBlock, FileUploadMixin):
     """
     This XBlock shows pretty jQuery powered timeline HTML page.
     It currently has no input except edit display_name in edX studio
@@ -62,7 +61,6 @@ class TimelineXBlock(XBlock):
         html_str = pkg_resources.resource_string(__name__, "static/html/studio_view.html")
         frag = Fragment(unicode(html_str).format(
                 display_name=self.display_name,
-                thumbnail_url=self.thumbnail_url,
                 display_description=self.display_description
         ))
         js_str = pkg_resources.resource_string(__name__, "static/js/src/studio_edit.js")
@@ -79,7 +77,11 @@ class TimelineXBlock(XBlock):
         data = request.POST
         self.display_name = data['display_name']
         self.display_description = data['display_description']
-        self.thumbnail_url = data['thumbnail']
+
+        block_id = data['usage_id']
+        if not isinstance(data['thumbnail'], basestring):
+            upload = data['thumbnail']
+            self.thumbnail_url = self.upload_to_s3('THUMBNAIL', upload.file, block_id, self.thumbnail_url)
 
         return Response(json_body={'result': 'success'})
 
