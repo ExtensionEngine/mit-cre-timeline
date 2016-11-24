@@ -1,21 +1,23 @@
 /* Javascript for TimelineXBlock. */
 function TimelineXBlock(runtime, element) {
+    var $element = $(element);
 
     function insertLinksOutsideOfTheTimeline() {
-        var $links = $('.ss-links--wrapper');
-        $('.ss-links--wrapper').remove();
-        $links.prependTo($('.xblock-student_view'));
+
+        var $links = $element.find('.ss-links--wrapper');
+        $element.find('.ss-links--wrapper').remove();
+        $links.prependTo($element);
     }
 
     function initializeAfterDomLoaded() {
         var $sidescroll = (function () {
 
             // the row elements
-            var $rows = $('#ss-container > div.ss-row'),
+            var $rows = $element.find('#ss-container > div.ss-row'),
             // we will cache the inviewport rows and the outside viewport rows
                 $rowsViewport, $rowsOutViewport,
             // navigation menu links
-                $links = $('#ss-links > a'),
+                $links = $element.find('#ss-links > a'),
             // the window element
                 $win = $(window),
             // we will store the window sizes here
@@ -84,7 +86,6 @@ function TimelineXBlock(runtime, element) {
                 },
             // initialize some events
                 initEvents = function () {
-
                     // navigation menu links.
                     // scroll to the respective section.
                     $links.on('click.Scrolling', function (event) {
@@ -102,13 +103,13 @@ function TimelineXBlock(runtime, element) {
                     // in lms, inside of the window
                     var $scrollElemenetRef;
                     if ($('.xblock-render').length) {
-                        $scrollElemenetRef = $('.mit_cre_timeline_block');
+                        $scrollElemenetRef = $element.find('.mit_cre_timeline_block');
                     } else {
                         $scrollElemenetRef = $(window);
                     }
 
 
-                     $scrollElemenetRef.on({
+                    $scrollElemenetRef.on({
                         // on window resize we need to redefine which rows are initially visible (this ones we will not animate).
                         'resize.Scrolling': function (event) {
 
@@ -258,7 +259,7 @@ function TimelineXBlock(runtime, element) {
         // HTML5 Video Background
         var $videoBackground = (function () {
             const ratio = 1.77777777777778;
-            var $container = $(document).find('div.mit_cre_timeline_block');
+            var $container = $element.find('div.mit_cre_timeline_block');
 
             var resize = function () {
                 var windowWidth = $container.width(),
@@ -293,9 +294,10 @@ function TimelineXBlock(runtime, element) {
         $videoBackground.init();
 
         // in studio view
-        if ($('.xblock-render').length){
+        if ($('.xblock-render').length) {
             insertLinksOutsideOfTheTimeline();
         }
     }
+
     initializeAfterDomLoaded();
 }
