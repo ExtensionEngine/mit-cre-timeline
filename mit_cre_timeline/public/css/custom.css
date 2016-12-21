@@ -235,6 +235,7 @@ section#timeline-summary h1.section-header {
     font-size: 4rem;
 }
 
+
 .ss-container h2 {
     font-family: "bebasneue_regular", sans-serif;
     font-size: 2em !important;
@@ -263,6 +264,16 @@ section#timeline-summary h1.section-header {
     color: #fff;
     line-height: 1.5em;
     line-height: 2.5rem;
+}
+
+@media screen and (max-width: 1199px) {
+    section#timeline-summary h1.section-header {
+        font-size: 2.5rem;
+    }
+
+    #timeline-summary p {
+        font-size: 1rem
+    }
 }
 
 #site-bg-video {
