@@ -108,14 +108,14 @@
     height: 300px;
     width: 60px !important;
     top: 30%;
-    z-index: 10000000;
+    z-index: 1000;
     background: transparent !important;
     border: 0 none !important;
 }
 
 .ss-links a:hover {
     background: rgba(95, 46, 49, 1);
-    color: white; !important;
+    color: white !important;
 }
 
 .ss-links a,
