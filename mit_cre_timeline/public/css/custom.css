@@ -108,14 +108,14 @@
     height: 300px;
     width: 60px !important;
     top: 30%;
-    z-index: 10000000;
+    z-index: 1000;
     background: transparent !important;
     border: 0 none !important;
 }
 
 .ss-links a:hover {
     background: rgba(95, 46, 49, 1);
-    color: white; !important;
+    color: white !important;
 }
 
 .ss-links a,
@@ -141,42 +141,6 @@
 
 .clr {
     clear: both;
-}
-
-/* Header Style */
-.header {
-    font-family: 'Arial Narrow', Arial, sans-serif;
-    line-height: 24px;
-    font-size: 11px;
-    background: #000;
-    opacity: 0.9;
-    text-transform: uppercase;
-    z-index: 9999;
-    position: relative;
-    -moz-box-shadow: 1px 0px 2px #000;
-    -webkit-box-shadow: 1px 0px 2px #000;
-    box-shadow: 1px 0px 2px #000;
-}
-
-.header a {
-    padding: 0px 10px;
-    letter-spacing: 1px;
-    color: #ddd;
-    display: block;
-    float: left;
-}
-
-.header a:hover {
-    color: #fff;
-}
-
-.header span.right {
-    float: right;
-}
-
-.header span.right a {
-    float: none;
-    display: inline;
 }
 
 .demos {
