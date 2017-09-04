@@ -41,12 +41,6 @@ class TimelineXBlock(XBlock, FileUploadMixin):
                         self, 'public/css/custom.css'))
         frag.add_css_url(
                 self.runtime.local_resource_url(
-                        self, 'public/css/reset.css'))
-        frag.add_css_url(
-                self.runtime.local_resource_url(
-                        self, 'public/css/style.css'))
-        frag.add_css_url(
-                self.runtime.local_resource_url(
                         self, 'public/css/kelly_slab.css'))
         frag.add_javascript(self.resource_string("static/js/src/mit_cre_timeline.js"))
         frag.add_javascript(self.resource_string("static/js/src/jquery.easing.1.3.js"))
