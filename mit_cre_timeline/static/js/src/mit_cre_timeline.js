@@ -2,6 +2,9 @@
 function TimelineXBlock(runtime, element) {
     var $element = $(element);
 
+    // we need this to change from "overflow: auto" if we want to make animations work.
+    $element.closest('.course-wrapper').css('overflow', 'unset');
+
     function insertLinksOutsideOfTheTimeline() {
 
         var $links = $element.find('.ss-links--wrapper');
